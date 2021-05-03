@@ -1,0 +1,22 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.title {
+    font-size: 5vh;
+    color: blue;
+    text-align: center;
+    padding-top: 1vh;
+}
+
+.tempMap {
+    margin: auto;
+    width: 85%;
+    height: 60%;
+    background-color: #8d8d8d;
+}
+
+

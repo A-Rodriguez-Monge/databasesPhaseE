@@ -1,0 +1,15 @@
+DELIMITER //
+
+DROP PROCEDURE IF EXISTS vacsTime //
+
+CREATE PROCEDURE vacsTime(IN iso VARCHAR(2))
+BEGIN
+
+	SELECT amount, dateOrdered
+	FROM ordersVaccines
+	WHERE isocode = iso
+	ORDER BY dateOrdered;
+
+END; //
+
+DELIMITER ;
