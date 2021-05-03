@@ -1,0 +1,9 @@
+<?php
+	include 'open.php';
+	echo "<h2>Vaccinations vs Time: by country<h2>";
+
+        $COUNTRY = $_POST['cSelect'];
+        echo "Selected: ".$COUNTRY;
+
+	$conn->close();
+?>
