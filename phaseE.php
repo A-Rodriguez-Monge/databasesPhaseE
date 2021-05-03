@@ -27,8 +27,16 @@
 	<h3>STATE MAP PLACE HOLDER</h3>
       </div>
 
-      <div class="tempMap">
-	<h3>US PIE CHART PLACE HOLDER</h3>
+      <div class="query">
+	<h3>Race/Ethnicity Statistics</h3>
+	<form action="patPie.php" method="post">
+	  <select name="patSelect">
+	    <option value="Hospitalizations">Hospitalizations</option>
+	    <option value="Deaths">Deaths</option>
+	    <option value="Infections">Infections</option>
+	  </select>
+	  <input type="submit" Value="Submit"/>
+	</form>
       </div>
 
       <div class="query">

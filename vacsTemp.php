@@ -1,7 +1,8 @@
 <?php
 	include 'open.php';
         $COUNTRY = $_POST['cSelect'];
-        echo "<h1>Selected: ".$COUNTRY."</h1>";
+	echo "<br><h1 style='text-align:center; font-size:5vh;'>Total Vaccines Ordered vs Time<h1>";
+	echo "<h2 style='text-align:center; margin-top:-2vh;'>Country IsoCode: ".$COUNTRY."</h2><br>";	
 
 	$res=$conn->query("CALL vacsTime('".$COUNTRY."');");
 	$row=mysqli_fetch_array($res);
@@ -29,9 +30,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	animationEnabled: true,
 	exportEnabled: true,
 	theme: "light1", // "light1", "light2", "dark1", "dark2"
-	title:{
-		text: "Vaccines Ordered vs Time"
-	},
+
 	axisX: {
 	        title: "Date Ordered"
 	},
@@ -49,7 +48,7 @@ chart.render();
 </script>
 </head>
 <body>
-<div id="chartContainer" style="height: 70%; width: 90%;"></div>
+<div id="chartContainer" style="height: 70%; width: 90%; margin:auto;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>       
