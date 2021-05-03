@@ -11,7 +11,7 @@
 	}
 	echo "</select>";
 
-	echo "<input type='submit' value='Select Country'> </form>";
+	echo "<input id='subC' type='submit' value='Select Country'> </form>";
 
 	$COUNTRY = $_POST['country'];
 	echo "Selected: ".$COUNTRY;
@@ -36,7 +36,10 @@
 <html>
 <head>
 <script>
-window.onload = function() {
+
+document.getElementByID("subC").onclick = function() {renderChart()};
+
+function renderChart() {
 	      var chart = new CanvasJS.chart("chartContainer", {
 	      	  animationEnabled: true,
 		  exportEnabled: true,
@@ -49,8 +52,10 @@ window.onload = function() {
 			datapoints: <?php echo json_encode($data, JSON_NUMERIC_CHECK); ?>
 		  }]
 	      });
-	      chart.render();
-	      }
+		chart.render();
+	      
+}
+
 </script>
 </head>
 <body>
