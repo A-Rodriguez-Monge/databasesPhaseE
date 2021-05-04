@@ -40,7 +40,7 @@
       </div>
 
       <div class="query">
-	<h3>Vaccines Over Time: </h3>
+	<h3>Vaccines Over Time</h3>
 	<form action="vacsTime.php" method="post">
 	  <select name="cSelect">
 	    <?php
@@ -56,11 +56,17 @@
       </div>
 
       <div class="query">
-      	   <form action="incomeStat.php">
-		
+      	   <h3>Average Infection Rates By Income</h3>
+      	   <form action="incomeStat.php" method="post">
+		<label for="lower">Lower Bound:</label>
+		<input type="number" min="1" max="190000"id="lower" name="lower"/><br><br>
+		<label for="upper">Upper Bound:</label>
+		<input type="number" min="1" max="200000" id="upper" name="upper"/><br><br>
+		<input type="submit" value="Submit"/>
 	   </form>
       </div>
-      
+
+      <br>
     </body>
 
 </html>
