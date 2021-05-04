@@ -1,32 +1,32 @@
 <?php
 	include 'open.php';
-	echo "<h2>Vaccinations vs Time: by country<h2>";
+	$COUNTRY=$_POST['cSelect'];
+	echo "<br><h1 style='text-align:center; font-size:5vh;'>Total Vaccines Ordered vs Time<h1>";
+        echo "<h2 style='text-align:center; margin-top:-2vh;'>Country IsoCode: ".$COUNTRY."</h2><br>";
 
-	$countries="SELECT name, isocode FROM Country ORDER BY name;";
-	echo "<form method='post'>";
-	echo "<select id=country name=country >Country</option>";
-	
-	foreach ($conn->query($countries) as $cRow){
-		echo "<option value=$cRow[isocode]>$cRow[name]</option>";
-	}
-	echo "</select>";
+	if ($stmt=$conn->prepare("CALL vacsTime(?);")) {
+	   $stmt->bind_param("s", $COUNTRY);
 
-	echo "<input id='subC' type='submit' value='Select Country'> </form>";
-
-	$COUNTRY = $_POST['country'];
-	echo "Selected: ".$COUNTRY;
-
-	$res=$conn->query("CALL vacsTime('".$COUNTRY."');");
-	$row=mysqli_fetch_array($res);
-
-	$data = array();
-
-	if ($row["manuName"] == 'INVALID') {
-	   echo "This Country has no orders...";
+	   if ($stmt->execute()) {
+	      $res=$stmt->get_result();
+	      $row=mysqli_fetch_array($res);
+	     
+	      if (strcmp($row["manuName"], "INVALID") == 0) {
+	      	 echo "<br><h1 style='text-align:center;'>This Country Has Not Ordered Vaccines...</h1>";
+	      } else {
+	      	$dataPoints=array();
+	      	foreach($res as $row) {
+                       array_push($dataPoints, array("label"=> $row["dateOrdered"], "y"=> $row["amount"]));
+          	}
+	      }
+	      $res->free_result();
+	   } else {
+	     echo "<h2 style='text-align:center;'>Execute Failed</h2>.<br>";
+	   }
+	   $stmt->close();
 	} else {
-	  foreach() {
-	  	    array_push($data, array("date"=> $row["dateOrdered"], "amount"=> $row["amount"]));
-	  }
+	  $error=$conn->errno.' '.$conn->error;
+	  echo $error;
 	}
 
 	$conn->close();
@@ -36,30 +36,32 @@
 <html>
 <head>
 <script>
+window.onload = function () {
 
-document.getElementByID("subC").onclick = function() {renderChart()};
+var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        exportEnabled: true,
+        theme: "light1", // "light1", "light2", "dark1", "dark2"
 
-function renderChart() {
-	      var chart = new CanvasJS.chart("chartContainer", {
-	      	  animationEnabled: true,
-		  exportEnabled: true,
-		  theme: "light1", // "light1", "light2", "dark1", "dark2"
-		  title: {
-		  	 text: "PHP Line Chart From Database"
-		  },
-		  data: [{
-		  	type: "line", //change type to column, bar, line, area, pie, etc
-			datapoints: <?php echo json_encode($data, JSON_NUMERIC_CHECK); ?>
-		  }]
-	      });
-		chart.render();
-	      
+        axisX: {
+                title: "Date Ordered"
+        },
+        axisY: {
+                title: "Number of Vaccines Ordered"
+        },
+        data: [{
+                type: "line", //change type to bar, line, area, pie, etc
+                dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+     	}]
+});
+chart.render();
+
 }
-
 </script>
 </head>
 <body>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<div id="chartContainer" style="height: 70%; width: 90%; margin:auto;"></div\
+>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>

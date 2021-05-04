@@ -41,7 +41,7 @@
 
       <div class="query">
 	<h3>Vaccines Over Time: </h3>
-	<form action="vacsTemp.php" method="post">
+	<form action="vacsTime.php" method="post">
 	  <select name="cSelect">
 	    <?php
 	     $countries="SELECT name, isocode FROM Country ORDER BY name;";
@@ -54,7 +54,12 @@
 	  <input type="submit" Value="Submit"/>
 	</form>
       </div>
-      
+
+      <div class="query">
+      	   <form action="incomeStat.php">
+		
+	   </form>
+      </div>
       
     </body>
 
