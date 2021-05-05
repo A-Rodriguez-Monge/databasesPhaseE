@@ -1,5 +1,5 @@
 .worldMap {
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
 }
 path {fill: lightgray; stroke: white;}
