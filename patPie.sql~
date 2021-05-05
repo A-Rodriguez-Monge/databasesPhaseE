@@ -1,0 +1,42 @@
+DELIMITER //
+
+DROP PROCEDURE IF EXISTS hosp //
+
+CREATE PROCEDURE hosp()
+BEGIN
+	WITH totPat AS (SELECT COUNT(patientID) tot FROM Patient WHERE hospitalStatus = 'Yes')
+
+	SELECT COUNT(patientID) / tot * 100 Percent, Patient.raceEthnicity
+	FROM Patient, totPat
+	WHERE hospitalStatus = 'Yes'
+	GROUP BY raceEthnicity;
+
+END; //
+
+DROP PROCEDURE IF EXISTS deaths //
+
+CREATE PROCEDURE deaths()
+BEGIN
+        WITH totPat AS (SELECT COUNT(patientID) tot FROM Patient WHERE deathStatus = 'Yes')
+
+        SELECT COUNT(patientID) / tot * 100 Percent, Patient.raceEthnicity
+        FROM Patient, totPat
+        WHERE deathStatus = 'Yes'
+        GROUP BY raceEthnicity;
+
+END; //
+
+DROP PROCEDURE IF EXISTS infections //
+
+CREATE PROCEDURE infections()
+BEGIN
+        WITH totPat AS (SELECT COUNT(patientID) tot FROM Patient)
+
+        SELECT COUNT(patientID) / tot * 100 Percent, Patient.raceEthnicity
+        FROM Patient, totPat
+        GROUP BY raceEthnicity;
+
+END; //
+
+
+DELIMITER ;
