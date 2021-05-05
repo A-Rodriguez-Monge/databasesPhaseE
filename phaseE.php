@@ -29,6 +29,15 @@
       </div>
 
       <div class="query">
+	<h3>Vaccination Rates by Income</h3>
+	<form action="vacRate.php" method="post">
+	  <label for="vacRate">Lower Bound:</label>
+	  <input type="number" min="0" max="190000" name="vacRate" id="vacRate" required/>
+	  <input type="submit" Value="Submit"/>
+	</form>
+      </div>      
+
+      <div class="query">
 	<h3>Race/Ethnicity Statistics</h3>
 	<form action="patPie.php" method="post">
 	  <select name="patSelect">
@@ -60,9 +69,9 @@
       	   <h3>Average Infection Rates By Income</h3>
       	   <form action="incomeStat.php" method="post">
 		<label for="lower">Lower Bound:</label>
-		<input type="number" min="1" max="190000"id="lower" name="lower"/><br><br>
+		<input type="number" min="1" max="190000"id="lower" name="lower" required/><br><br>
 		<label for="upper">Upper Bound:</label>
-		<input type="number" min="1" max="200000" id="upper" name="upper"/><br><br>
+		<input type="number" min="0" max="200000" id="upper" name="upper" required/><br><br>
 		<input type="submit" value="Submit"/>
 	   </form>
       </div>
