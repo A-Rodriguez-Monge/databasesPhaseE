@@ -9,7 +9,6 @@
 	 } else if((int)$LOWER > (int)$UPPER) {
 	 	echo "Please Select Upper Bound Greater Than Lower Bound";
 	 } else {
-	   echo "Lower: ".$LOWER."<br>Upper: ".$UPPER."<br>";
 	  
 	   if ($stmt=$conn->prepare("CALL incomeStat(?,?);")) {
 	      $stmt->bind_param("ii",$LOWER, $UPPER);
@@ -20,15 +19,9 @@
 		 if($res->num_rows == 0) {
 		 	echo "No Countries Within This Range...";
 		 } else {
-		   	//$dataPoints=array();
+		   	$dataPoints=array();
 			foreach($res as $row) {
-				     //array_push($dataPoints, array("label"=> $row["avgRate"], "y"=> array($LOWER, $UPPER)));
-				     $dataPoints=array("label"=> $row["avgRate"], "y"=> array($LOWER, $UPPER));
-				     echo "Rate: ".$row["avgRate"];
-				     echo "<br>Lower: ".$LOWER;
-				     echo "<br>Upper: ".$UPPER."<br>";
-				     echo "<br>dataPoints: ".var_dump($dataPoints["label"]);
-				     echo "<br>dataPoints 2 :".var_dump($dataPoints["y"]);
+				     array_push($dataPoints, array("label"=> round($row["avgRate"], 2), "y"=> [$LOWER, $UPPER]));
 			}
 		 }
 	      	 $res->free_result();
@@ -57,13 +50,19 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	theme: "light1",
 	animationEnabled: true,
 	axisY: {
-		suffix: "%",
-		includeZero: false
+		prefix: "$",
+		includeZero: false,
+		title : "per Capita Income (USD)",
 	},
+	axisX: {
+	       suffix: "%",
+	       title: "Average Infection Rate",
+
+	},
+	dataPointWidth: 100,
 	data: [
 		{
 			type: "rangeColumn",
-			yValueFormatString: "#,##0.00\"%\"",
 			toolTipContent: "{label}<br>Minimum: {y[0]}<br>Maximum: {y[1]}",
 			dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
 		}
@@ -76,7 +75,7 @@ chart.render();
 </script>
 </head>
 <body>
-<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<div id="chartContainer" style="height: 370px; width: 50%; margin: auto;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>                              
