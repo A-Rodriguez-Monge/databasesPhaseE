@@ -15,8 +15,15 @@ body, html {
 .tempMap {
     margin: auto;
     width: 85%;
-    height: 60%;
+    height: 80%;
     background-color: #8d8d8d;
+}
+
+.tempMap iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 .query {

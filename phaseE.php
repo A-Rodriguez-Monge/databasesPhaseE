@@ -21,6 +21,7 @@
       
       <div class="tempMap">
 	<h3>WORLD MAP PLACE HOLDER</h3>
+	<iframe src="worldMap.html"></iframe>
       </div>
 
       <div class="tempMap">
