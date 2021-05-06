@@ -76,6 +76,14 @@
 	   </form>
       </div>
 
+      <div class="query">
+      	<br>
+	<h2>Modify Database</h2>
+	<form action="./modify.php">
+	      <input type="submit" value="Go"/>
+	</form>
+      </div>
+
       <br>
     </body>
 

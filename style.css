@@ -12,6 +12,27 @@ body, html {
     padding-top: 1vh;
 }
 
+.sub {
+    margin-left: 15%;
+}
+
+.insert {
+    margin: auto;
+    margin-left: 15%;
+}
+
+.insert div {
+    display: inline-block;
+}
+
+.insert label {
+    display: block;
+}
+
+.tableName {
+    padding: 0 20px;
+}
+
 .tempMap {
     margin: auto;
     width: 85%;
@@ -32,5 +53,6 @@ body, html {
     width: 30%;
     height: 10%;
     margin: auto;
+    padding-bottom: 80px;
 }
 
