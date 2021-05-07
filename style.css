@@ -13,12 +13,11 @@ body, html {
 }
 
 .sub {
-    margin-left: 15%;
+    margin: auto;
 }
 
 .insert {
     margin: auto;
-    margin-left: 15%;
 }
 
 .insert div {
