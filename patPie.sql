@@ -17,11 +17,11 @@ DROP PROCEDURE IF EXISTS Deaths //
 
 CREATE PROCEDURE Deaths()
 BEGIN
-        WITH totPat AS (SELECT COUNT(patientID) tot FROM Patient WHERE deathStatus = 'Yes')
+        WITH totPat AS (SELECT COUNT(patientID) tot FROM Patient WHERE deathStatus LIKE 'Yes%')
 
         SELECT COUNT(patientID) / tot * 100 Percent, Patient.raceEthnicity
         FROM Patient, totPat
-        WHERE deathStatus = 'Yes'
+        WHERE deathStatus LIKE 'Yes%'
         GROUP BY raceEthnicity;
 
 END; //
