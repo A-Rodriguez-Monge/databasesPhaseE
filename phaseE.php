@@ -20,12 +20,11 @@
       <h3 class="title" style="font-size: 2vh;">Collection of Critical COVID-19 Statistics:</h3>
       
       <div class="tempMap">
-	<h3>WORLD MAP PLACE HOLDER</h3>
 	<iframe src="worldMap.html"></iframe>
       </div>
 
       <div class="tempMap">
-	<h3>STATE MAP PLACE HOLDER</h3>
+	<iframe src="stateMap.html"></iframe>
       </div>
 
       <div class="query">

@@ -1,11 +1,15 @@
 <?php
 	include 'open.php';
 	$iso = $_POST['text'];
-	echo $iso;
 
 	$res = $conn->query("CALL worldMap('".$iso."');");
-	$row = mysqli_fetch_array($res);
+	$row = mysqli_fetch_assoc($res);
 
-	echo implode(", ", $row);
+	echo "ISO: ".$row["isocode"];
+	echo "\nDeaths: ".$row["totalDeaths"];
+        echo "\nTests: ".$row["testsAdministered"];
+        echo "\nVaccinations: ".$row["totalVacs"];
+        echo "\nHospitalizations: ".$row["hospitalizations"];
+        echo "\nCases: ".$row["totalCases"];
 	$conn->close();
 ?>

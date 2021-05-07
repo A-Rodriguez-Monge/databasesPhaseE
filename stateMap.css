@@ -1,0 +1,14 @@
+.map-container {
+  display: inline-block;
+  float: left;
+  width: 600px;
+  background-color: #8d8d8d;
+}
+
+#info {
+  display: inline-block;
+  width:300px;
+  float:left;
+  margin-left:50px;
+  #background-color: #8d8d8d;
+}
