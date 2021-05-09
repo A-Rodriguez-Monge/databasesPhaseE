@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="description" content="COVID Data">
 	<meta name="author" content="Alejandro R, Mirza K">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./style.css">
 
@@ -18,13 +18,44 @@
     <body>
       <h2 class="title">Phase E: COVID Data</h2> <br/>
       <h3 class="title" style="font-size: 2vh;">Collection of Critical COVID-19 Statistics:</h3>
-      
+
       <div class="tempMap">
 	<iframe src="worldMap.html"></iframe>
       </div>
 
-      <div class="tempMap">
-	<iframe src="stateMap.html"></iframe>
+      <div class="query">
+        <h3>Country Rate Statistics</h3>
+        <form action="countryRate.php" method="post">
+          <select name="countryRateSelect">
+            <option value="testingDeathRate">Testing-Death Rate</option>
+            <option value="nrdRate">Normal-Covid-Death Rate</option>
+          </select>
+          <input type="submit" Value="Submit"/>
+        </form>
+      </div>
+
+      <div class="query">
+        <h3>Infection Rate By Party</h3>
+        <form action="statePol.php" method="post">
+          <select name="statePolSelect">
+            <option value="Dem">Democratic</option>
+            <option value="Rep">Republican</option>
+          </select>
+          <input type="submit" Value="Submit"/>
+        </form>
+      </div>
+
+      <div class="query">
+        <h3>State Education Statistics</h3>
+        <form action="stateEdu.php" method="post">
+          <select name="stateEduSelect">
+            <option value="someHS">Some Highschool</option>
+            <option value="HS">Highschool</option>
+            <option value="someCollege">Some College</option>
+	    <option value="college">College</option>
+          </select>
+          <input type="submit" Value="Submit"/>
+        </form>
       </div>
 
       <div class="query">
@@ -34,7 +65,7 @@
 	  <input type="number" min="0" max="190000" name="vacRate" id="vacRate" required/>
 	  <input type="submit" Value="Submit"/>
 	</form>
-      </div>      
+      </div>
 
       <div class="query">
 	<h3>Race/Ethnicity Statistics</h3>

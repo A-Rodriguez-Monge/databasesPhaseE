@@ -4,7 +4,7 @@ DROP PROCEDURE IF EXISTS stateMap //
 
 CREATE PROCEDURE stateMap()
 BEGIN
-	SELECT * FROM State;
+	SELECT * FROM StateTable;
 END; //
 
 DELIMITER ;
