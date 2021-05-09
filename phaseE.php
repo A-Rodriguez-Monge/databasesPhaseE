@@ -96,6 +96,19 @@
       </div>
 
       <div class="query">
+        <h3>Vaccines By Manufacturer</h3>
+        <form action="manuVacs.php" method="post">
+          <label for="start">Start Date:</label>
+          <input type="date" id="start" name="start" min="2020-05-01" max="2021-03-30" value="2020-05-01" required/>
+          <br><br>
+          <label for="end">End Date:</label>
+          <input type="date" id="end" name="end" min="2020-05-20" max="2021-04-21" value="2021-04-21" required/>
+          <br><br>
+          <input type="submit" Value="Submit"/>
+        </form>
+      </div>
+
+      <div class="query">
       	   <h3>Average Infection Rates By Income</h3>
       	   <form action="incomeStat.php" method="post">
 		<label for="lower">Lower Bound:</label>
