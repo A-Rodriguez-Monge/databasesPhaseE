@@ -121,6 +121,6 @@ function toggleDataSeries(e){
 <body>
 <div id="chartContainer" style="height: 70%; width: 80%; margin:auto;"></div>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<h3 style='text-align:center;'>^Click To Toggle Data^</h3>
+<h2 style='text-align:center;'>^^^Click To Toggle Data^^^</h2>
 </body>
 </html>
