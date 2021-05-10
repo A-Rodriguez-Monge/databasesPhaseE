@@ -1,6 +1,6 @@
 .worldMap {
   width: 100%;
-  margin: 0 auto;
+  margin: auto;
 }
 path {fill: lightgray; stroke: white;}
 path:hover {fill: gray;}
