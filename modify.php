@@ -15,9 +15,6 @@
 	  <tr>
 	    <th><button onclick="location.href='./modReg.php';">Region</button></th>
 	    <th><button onclick="location.href='./modCou.php';">Country</button></th>
-	  </tr>
-
-	  <tr>
 	    <th><button onclick="location.href='./modStats.php';">COVID Stats</button></th>
 	    <th><button onclick="location.href='./modManu.php';">Manufacturers</button></th>
 	    <th><button onclick="location.href='./modVac.php';">Vaccine Orders</button></th>

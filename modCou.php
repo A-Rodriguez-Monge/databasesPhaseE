@@ -88,7 +88,7 @@
                            $res=$stmt->get_result();
 
                            if ($res->num_rows == 0) {
-                              echo '<script>alert("Country Already Exists!")</script>';
+                              echo '<script>alert("Country Already Exists or Region Does Not Exist")</script>';
                            } else {
                               echo '<script>alert("Country Added!")</script>';
                            }
