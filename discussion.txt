@@ -1,0 +1,26 @@
+Members:
+	arodri75 - Alejandro Rodriguez
+	mkorman3 - Mirza Korman
+
+Modifications:
+	Some queries have minor changes to be better visualized.
+	Some data errors were corrected
+
+Process:
+	see Phase C
+
+Successes:
+	1. Maps: formatting data correctly from queries to present it on the map + adding functionality
+	2. State Relation: Finding lots of different data and connecting/formatting it to fit well
+
+Known Issues:
+      1. Some outliers in dataset which skews some visualizations
+      	 ex: testing-death rate has much higher values for smaller countries		due to their smaller populations
+
+      2. Some missing data points
+      	 ex: China should have more than 0 hospitalizations
+
+Extensions:
+	1. Pull more date from real-time sources
+	2. Clean up UI and make website more concise
+	3. Expand 'state' table to different countries

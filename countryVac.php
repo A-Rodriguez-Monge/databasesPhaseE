@@ -58,7 +58,8 @@
 
     var geoChart = new google.visualization.GeoChart(document.getElementById('chart'));
 
-    var options = {};
+    var options = {
+    };
 
     geoChart.draw(view, options);
     };

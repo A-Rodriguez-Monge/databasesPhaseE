@@ -53,6 +53,8 @@
     var view = new google.visualization.DataView(data);
     view.setColumns([0, 1]);
 
+    console.log(regionDataArray);
+
     var geoChart = new google.visualization.GeoChart(document.getElementById('chart'));
 
     var options = {
