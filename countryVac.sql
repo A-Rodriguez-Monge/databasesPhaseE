@@ -6,7 +6,7 @@ CREATE PROCEDURE countryVac(IN input VARCHAR(40))
 BEGIN
 	SELECT SUM(AMOUNT) AS total, isocode, manuName
 	FROM ordersVaccines
-	WHERE manuName = input
+	WHERE manuName LIKE input
 	GROUP BY isocode, manuName;
 END; //
 

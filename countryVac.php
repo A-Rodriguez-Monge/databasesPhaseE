@@ -5,6 +5,9 @@
 
         echo "<br><h1 style='text-align:center; font-size:5vh;'>".$STAT." Vaccines by Country</h1><br>";
 
+	$STAT=$STAT."%";
+
+
 	if ($stmt=$conn->prepare("CALL countryVac(?);")) {
 		$stmt->bind_param("s", $STAT);
 
