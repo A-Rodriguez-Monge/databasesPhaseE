@@ -24,6 +24,22 @@
       </div>
 
       <div class="query">
+        <h3>Vaccines By Country</h3>
+        <form action="countryVac.php" method="post">
+          <select name="countryVacSelect">
+            <?php
+             $manu="SELECT manuName FROM Manufacturer ORDER BY manuName;";
+             $res=$conn->query($manu);
+             while($cRow=mysqli_fetch_array($res)){
+              echo "<option value=$cRow[manuName]>".$cRow['manuName']."</option>";
+            }
+            ?>
+          </select>
+          <input type="submit" Value="Submit"/>
+        </form>
+      </div>
+
+      <div class="query">
         <h3>Country Rate Statistics</h3>
         <form action="countryRate.php" method="post">
           <select name="countryRateSelect">

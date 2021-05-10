@@ -3,7 +3,7 @@
 
         $STAT=$_POST['countryRateSelect'];
 
-        echo "<br><h1 style='text-align:center; font-size:5vh;'>Rate By Country</h1><br>";
+        echo "<br><h1 style='text-align:center; font-size:5vh;'>Covid Death Rate To Normal Death Rate</h1><br>";
 
         $res=$conn->query("CALL ".$STAT."();");
 
@@ -23,7 +23,7 @@
 		} else {
 			$t = $row["testingDeathRatio"];
 		}
-        	array_push($dataPoints, array($row["country"], $t));
+        	array_push($dataPoints, array($row["country"], $t * 100));
         }
 
 	$out = array_values($dataPoints);
@@ -36,7 +36,7 @@
     <link rel="stylesheet" href="./stateMap.css">
 </head>
 <div class="map-container">
-    <div id="chart"></div>
+    <div id="chart" align="center"></div>
 </div>
 <div id="info">
 </div>

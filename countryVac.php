@@ -1,20 +1,19 @@
 <?php
         include 'open.php';
 
-        $STAT=$_POST['stateEduSelect'];
+        $STAT=$_POST['countryVacSelect'];
 
-        echo "<br><h1 style='text-align:center; font-size:5vh;'>Covid-Rates by Education Ratio</h1><br>";
+        echo "<br><h1 style='text-align:center; font-size:5vh;'>".$STAT." Vaccines by Country</h1><br>";
 
-	if ($stmt=$conn->prepare("CALL stateEdu(?);")) {
+	if ($stmt=$conn->prepare("CALL countryVac(?);")) {
 		$stmt->bind_param("s", $STAT);
 
 		if ($stmt->execute()) {
 			$res = $stmt->get_result();
         		$dataPoints = array();
-        		array_push($dataPoints, array("State", "Rate"));
+        		array_push($dataPoints, array("Region", "Total"));
         		foreach($res as $row) {
-                		$t = $row["covidRate"] * $row["percent"];
-                		array_push($dataPoints, array($row["stateName"], $t));
+                		array_push($dataPoints, array($row["isocode"], $row["total"]));
         		}
 
         		$out = array_values($dataPoints);
@@ -56,12 +55,7 @@
 
     var geoChart = new google.visualization.GeoChart(document.getElementById('chart'));
 
-    var options = {
-        region: 'US',
-        resolution: 'provinces',
-        legend: 'none',
-        backgroundColor: '#8d8d8d'
-    };
+    var options = {};
 
     geoChart.draw(view, options);
     };
