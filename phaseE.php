@@ -19,6 +19,7 @@
       <h2 class="title">Phase E: COVID Data</h2> <br/>
       <h3 class="title" style="font-size: 2vh;">Collection of Critical COVID-19 Statistics:</h3>
 
+      <h1 style='text-align:center;'>CLICK MAP BELOW</h1>
       <div class="tempMap">
 	<iframe src="worldMap.html"></iframe>
       </div>
@@ -37,7 +38,7 @@
           </select>
           <input type="submit" Value="Submit"/>
         </form>
-      </div>
+	</div>
 
       <div class="query">
         <h3>Country Rate Statistics</h3>
