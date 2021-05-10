@@ -29,7 +29,7 @@
         <form action="countryVac.php" method="post">
           <select name="countryVacSelect">
             <?php
-             $manu="SELECT manuName FROM Manufacturer ORDER BY manuName;";
+             $manu="SELECT manuName FROM Manufacturer WHERE totalAmount != 0 ORDER BY manuName;";
              $res=$conn->query($manu);
              while($cRow=mysqli_fetch_array($res)){
               echo "<option value=$cRow[manuName]>".$cRow['manuName']."</option>";

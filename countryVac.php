@@ -14,9 +14,9 @@
 		if ($stmt->execute()) {
 			$res = $stmt->get_result();
         		$dataPoints = array();
-        		array_push($dataPoints, array("Region", "Total"));
+        		array_push($dataPoints, array("Country", "Total"));
         		foreach($res as $row) {
-                		array_push($dataPoints, array($row["isocode"], $row["total"]));
+                		array_push($dataPoints, array( $row["name"], (int)$row["total"]));
         		}
 
         		$out = array_values($dataPoints);
@@ -53,15 +53,16 @@
     function drawMap() {
     var regionDataArray = <?php echo json_encode($out); ?>;
     var data = google.visualization.arrayToDataTable(regionDataArray);
-    var view = new google.visualization.DataView(data);
-    view.setColumns([0, 1]);
+
+    //var view = new google.visualization.DataView(data);
+    //view.setColumns([0, 1]);
 
     var geoChart = new google.visualization.GeoChart(document.getElementById('chart'));
 
     var options = {
     };
 
-    geoChart.draw(view, options);
+    geoChart.draw(data, options);
     };
 </script>
 </html>

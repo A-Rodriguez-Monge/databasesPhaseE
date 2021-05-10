@@ -20,6 +20,10 @@ Known Issues:
       2. Some missing data points
       	 ex: China should have more than 0 hospitalizations
 
+      3. Afghanistan Isocode does not load correctly
+      	 raw data is fine, but when loaded, it is turned to a weird character
+
+
 Extensions:
 	1. Pull more date from real-time sources
 	2. Clean up UI and make website more concise
